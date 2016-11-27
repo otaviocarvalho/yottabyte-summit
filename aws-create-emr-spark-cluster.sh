@@ -1,0 +1,12 @@
+aws emr create-cluster \
+     --name yottabyte-summit \
+     --release-label emr-5.0.0 \
+     --instance-groups InstanceGroupType=MASTER,InstanceCount=1,InstanceType=m4.xlarge InstanceGroupType=CORE,InstanceCount=2,InstanceType=m4.large \
+     --service-role EMR_DefaultRole \
+     --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole,SubnetId=<subnet-id>,KeyName=yottabyte \
+     --log-uri s3://yottabyte-bucket \
+     --enable-debugging \
+     --no-auto-terminate \
+     --visible-to-all-users \
+     --applications Name=Hadoop Name=Hive Name=Spark \
+     --region us-east-1 
