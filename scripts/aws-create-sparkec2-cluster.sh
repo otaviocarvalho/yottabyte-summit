@@ -1,6 +1,6 @@
-./spark-ec2/spark-ec2 \
+../spark-ec2/spark-ec2 \
     --key-pair=yottabyte \
-    --identity-file=/<path>/yottabyte.pem \
+    --identity-file=../yottabyte.pem \
     --vpc-id=<vpc-id> \
     --subnet-id=<subnet-id> \
     --region=us-east-1 \
@@ -9,4 +9,6 @@
     --instance-type=m3.large \
     --master-instance-type=m3.xlarge \
     --hadoop-major-version=yarn \
+    --spark-version=2.0.2 \
+    --copy-aws-credentials \
     launch spark-yottabyte-cluster
